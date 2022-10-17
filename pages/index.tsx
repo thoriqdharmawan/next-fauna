@@ -20,9 +20,11 @@ const GET_PRODUCTS = gql`
 `;
 
 const Home: NextPage = () => {
-  const { data, loading } = useQuery(GET_PRODUCTS);
+  const { data, loading } = useQuery(GET_PRODUCTS, {
+    fetchPolicy: "network-only",
+  });
 
-  if(loading) return <p>Loading data, please wait..</p>
+  if (loading) return <p>Loading data, please wait..</p>;
 
   return (
     <>

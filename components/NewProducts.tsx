@@ -96,7 +96,7 @@ const ProductForm = (props: any) => {
           <input
             type="text"
             className={inputStyle}
-            name="coverImg"
+            name="imageUrl"
             onChange={handleChange}
           />
         </div>
