@@ -22,7 +22,7 @@ const GET_PRODUCTS = gql`
 const Home: NextPage = () => {
   const { data, loading } = useQuery(GET_PRODUCTS);
 
-  if(loading) return <p>Loading..</p>
+  if(loading) return <p>Loading data, please wait..</p>
 
   return (
     <>

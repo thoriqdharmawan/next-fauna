@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
-const httpLink = createHttpLink({
+export const httpLink = createHttpLink({
   uri: process.env.NEXT_PUBLIC_FAUNA_DOMAIN,
 });
 
@@ -15,8 +15,15 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
+export const setAuthToken = (token: string) =>
+  setContext((_, { headers }) => ({
+    headers: {
+      ...headers,
+      authorization: `Bearer ${token}`,
+    },
+  }));
+
 export const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
-

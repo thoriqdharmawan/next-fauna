@@ -6,10 +6,10 @@ const navLinkStyle = `cursor-pointer inline-flex items-center px-1 pt-1 text-gra
 
 const iconButtonStyle = `flex bg-white p-2 rounded-full text-gray-400 hover:text-indigo-400 border-2 border-gray-500 hover:border-indigo-400`;
 
-// import { useUser } from '@auth0/nextjs-auth0'
+import { useUser } from '@auth0/nextjs-auth0'
 
 export default function Nav() {
-  // const { user, isLoading } = useUser()
+  const { user, isLoading } = useUser()
   // console.log('--->', user)
 
   // const { state } = useContext(Context as any)
@@ -54,7 +54,7 @@ export default function Nav() {
                 {` ${itemCount} Item(s)`}
               </button>
             </Link>
-            {/* {
+            {
               !user ? (
                 <a href="/api/auth/login" className="rounded-md border bg-purple-100 px-2 py-3 mr-2 ml-2">
                   Login as Vendor
@@ -71,7 +71,7 @@ export default function Nav() {
                   </a>
                 </>
               )
-            } */}
+            }
           </div>
         </div>
       </div>
